@@ -1,9 +1,9 @@
-package com.rong.spcloud.config;
-/*
+package com.rong.spcloud.config;/*
  @author jm
  @DESCRIPTION ${DESCRIPTION}
- @create 2020/4/23
+ @create 2020/4/29
 */
+
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +15,7 @@ public class ApplicationContextConfig {
 
     @Bean
     @LoadBalanced
-    public RestTemplate restTemplate(){
+    public RestTemplate getResttpl(){
         return new RestTemplate();
     }
 }

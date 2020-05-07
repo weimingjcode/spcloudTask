@@ -1,22 +1,19 @@
 package com.rong.spcloud;
 /*
  @author jm
- @DESCRIPTION payment8001主启动类
- @create 2020/4/17
+ @DESCRIPTION ${DESCRIPTION}
+ @create 2020/4/29
 */
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.context.annotation.ComponentScan;
-
 
 @SpringBootApplication
-@EnableEurekaClient
 @EnableDiscoveryClient
-public class PaymentMain8001 {
+public class PaymentConsulMain8004 {
     public static void main(String[] args) {
-        SpringApplication.run(PaymentMain8001.class);
+        SpringApplication.run(PaymentConsulMain8004.class,args);
     }
 }

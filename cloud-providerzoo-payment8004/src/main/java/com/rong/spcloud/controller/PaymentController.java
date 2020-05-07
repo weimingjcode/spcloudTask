@@ -1,4 +1,4 @@
-package com.rong.spcloud.Controller;
+package com.rong.spcloud.controller;
 /*
  @author jm
  @DESCRIPTION ${DESCRIPTION}

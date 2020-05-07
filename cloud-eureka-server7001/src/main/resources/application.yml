@@ -11,3 +11,9 @@ eureka:
     fetch-registry: false
     service-url:
        defaultZone: http://eureka7002.com:7002/eureka/
+       #defaultZone: http://eureka7001.com:7001/eureka/
+  server:
+    #自我保护模式关闭  只要服务不可用立刻剔除
+    #enable-self-preservation: false
+    #服务过期时间配置,超过这个时间没有接收到心跳EurekaServer就会将这个实例剔除
+    #eviction-interval-timer-in-ms: 2000

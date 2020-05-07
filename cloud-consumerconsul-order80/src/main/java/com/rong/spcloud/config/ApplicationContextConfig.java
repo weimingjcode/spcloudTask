@@ -2,7 +2,7 @@ package com.rong.spcloud.config;
 /*
  @author jm
  @DESCRIPTION ${DESCRIPTION}
- @create 2020/4/23
+ @create 2020/4/30
 */
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
