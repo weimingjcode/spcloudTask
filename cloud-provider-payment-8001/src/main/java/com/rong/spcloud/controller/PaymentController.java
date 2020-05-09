@@ -46,7 +46,7 @@ public class PaymentController {
         else return new CommonResult(444,"查询失败 id=" + id+"port--"+port,null);
     }
 
-    @GetMapping(value = "payment/discovery")
+    @GetMapping(value = "/payment/discovery")
     public Object discovery(){
         List<String> services = discoveryClient.getServices();
         for(String service : services){

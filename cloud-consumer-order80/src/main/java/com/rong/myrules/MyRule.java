@@ -1,4 +1,5 @@
-package com.rong.myrules;/*
+package com.rong.myrules;
+/*
  @author jm
  @DESCRIPTION ${DESCRIPTION}
  @create 2020/4/30

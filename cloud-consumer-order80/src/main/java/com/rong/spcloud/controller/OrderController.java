@@ -7,6 +7,7 @@ package com.rong.spcloud.controller;
 
 import com.rong.spcloud.entity.Payment;
 import com.rong.spcloud.entity.deal.CommonResult;
+import com.rong.spcloud.lb.LoadBalancer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -27,6 +29,9 @@ public class OrderController {
 
     @Resource
     private RestTemplate restTemplate;
+
+    @Resource
+    LoadBalancer loadBalancer;
 
     @Resource
     private DiscoveryClient discoveryClient;
@@ -56,6 +61,17 @@ public class OrderController {
             log.info(serviceInstance.getUri() + "\t" + serviceInstance.getInstanceId());
         }
         return discoveryClient;
+    }
+
+    @GetMapping()
+    public String getPaymentLB(){
+        List<ServiceInstance> serviceInstances = discoveryClient.getInstances("CLOUD-ORDER-SERVICE");
+        if(serviceInstances.size()<0 || serviceInstances == null){
+            return null;
+        }
+        ServiceInstance serviceInstance = loadBalancer.choseServiceInstance(serviceInstances);
+        URI uri = serviceInstance.getUri();
+       return restTemplate.getForObject(uri+"/payment/discovery", String.class);
     }
 
 }
