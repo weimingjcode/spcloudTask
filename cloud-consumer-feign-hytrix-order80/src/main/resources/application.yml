@@ -1,0 +1,40 @@
+server:
+  port: 80
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+#ribbon:
+#  ReadTimeout: 10000
+#  ConnectTimeout: 20000
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+#    command:
+#      default:
+#        execution:
+#          isolation:
+#            thread:
+#              timeoutInMilliseconds: 5000
+#  client:
+#    config:
+#      default:
+#        connect-timeout: 15000
+#        read-timeout: 25000
+#      service-test:
+#        connect-timeout: 15000
+#        read-timeout: 25000

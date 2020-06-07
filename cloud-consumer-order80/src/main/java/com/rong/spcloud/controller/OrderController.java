@@ -63,9 +63,9 @@ public class OrderController {
         return discoveryClient;
     }
 
-    @GetMapping()
-    public String getPaymentLB(){
-        List<ServiceInstance> serviceInstances = discoveryClient.getInstances("CLOUD-ORDER-SERVICE");
+    @GetMapping("/consumer/paymentlb/getPaymentEntityById/{id}")
+    public String getPaymentLB(@PathVariable("id") long id){
+        List<ServiceInstance> serviceInstances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
         if(serviceInstances.size()<0 || serviceInstances == null){
             return null;
         }
@@ -73,5 +73,4 @@ public class OrderController {
         URI uri = serviceInstance.getUri();
        return restTemplate.getForObject(uri+"/payment/discovery", String.class);
     }
-
 }
